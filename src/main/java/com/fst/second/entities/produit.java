@@ -16,19 +16,16 @@ public class produit {
 		this.prixUnitaireHTC = prixUnitaireHTC;
 	}
 	
-	public produit(String nom, String description, int quantite, double prixUnitaireHTC, double prixTotalTTC) {
+	public produit(String nom, String description, int quantite, double prixUnitaireHTC) {
 		super();
 		this.nom = nom;
 		this.description = description;
 		this.quantite = quantite;
 		this.prixUnitaireHTC = prixUnitaireHTC;
-		this.prixTotalTTC = prixTotalTTC;
+		
 	}
-
-	public produit(double prixTotalTTC) {
-		super();
-		this.prixTotalTTC = prixUnitaireHTC * 1.19 ;
-	}
+public produit() {}
+	
 	public int getId() {
 		return id;
 	}
@@ -59,9 +56,15 @@ public class produit {
 	public void setPrixUnitaireHTC(double prixUnitaireHTC) {
 		this.prixUnitaireHTC = prixUnitaireHTC;
 	}
+
+	public double getPrixTotalTTC() {
+		return prixTotalTTC;
+	}
+
 	public void setPrixTotalTTC(double prixTotalTTC) {
 		this.prixTotalTTC = prixTotalTTC;
 	}
+	
 	
 	
 

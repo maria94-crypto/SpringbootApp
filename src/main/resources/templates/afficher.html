@@ -27,7 +27,7 @@ xmlns:th="http://www.thymeleaf.org">
 		<td th:text="${p.description}"></td>
 		<td th:text="${p.quantite}"></td>
 		<td th:text="${p.prixUnitaireHTC}"></td>
-		
+		<td th:text="${p.prixTotalTTC}"></td>
 		<td><a class= "btn btn-danger" th:href="@{/produits/supprimer/{id}(id=${p.id})}">Delete</td>
 			<td><a class= "btn btn-primary" th:href="@{/produits/modifier/{id}(id=${p.id})}">update</td>
 	    </tr>

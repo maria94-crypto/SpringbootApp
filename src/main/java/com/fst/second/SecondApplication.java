@@ -13,12 +13,18 @@ public class SecondApplication {
 public static List<produit> produits= new ArrayList<>();
 	public static void main(String[] args) {
 		SpringApplication.run(SecondApplication.class, args);
-		produit p1= new produit (1, "produit1" , "desc1" , 45, 23.4);
+		produit p1= new produit (1, "produit1" , "desc1" , 45, 23.4 );
 		produit p2= new produit (2, "produit2" , "desc2" , 55, 20);
-		produit p3= new produit (1, "produit1" , "desc3" , 65, 40);
+		produit p3= new produit (3, "produit3" , "desc3" , 65, 40);
 		produits.add(p1);
 		produits.add(p2);
 		produits.add(p3);
+		for(produit p: produits) {
+			double prixTotalTTC = p.getQuantite() * p.getPrixUnitaireHTC() * 1.19;
+			p.setPrixTotalTTC(prixTotalTTC);
+			
+		}
+		
 	}
 
 }

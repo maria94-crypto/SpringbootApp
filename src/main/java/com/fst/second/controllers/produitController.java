@@ -20,13 +20,15 @@ public String ListeProduits(Model model) {
 	return "afficher";
     }
 @PostMapping("add")
-public String ajouter( @RequestParam ("nom")String nom, @RequestParam("description")String description, @RequestParam("quantite")int quantite, @RequestParam("prixUnitaireHTC")double prixUnitaireHTC, @RequestParam("prixTotalTTC")double prixTotalTTC)
+public String ajouter( @RequestParam ("nom")String nom, @RequestParam("description")String description, @RequestParam("quantite")int quantite, @RequestParam("prixUnitaireHTC")double prixUnitaireHTC)
 {
 int id= produits.size();
 id++;
-produit p= new produit(nom,description,quantite,prixUnitaireHTC,prixTotalTTC);
+produit p= new produit(nom,description,quantite,prixUnitaireHTC);
 p.setId(id);
 produits.add(p);
+double prixTotalTTC = p.getQuantite() * p.getPrixUnitaireHTC() * 1.19;
+p.setPrixTotalTTC(prixTotalTTC);
 return"redirect:liste";
 }
 
@@ -50,6 +52,7 @@ public String maj(@PathVariable("id")int id, Model model) {
 	for(produit p: produits) {
 		if(p.getId()==id) {
 			model.addAttribute(p);
+			
 		}
 	}
 		return "modifier";
@@ -63,6 +66,8 @@ public String maj(@PathVariable("id")int id, Model model) {
 				p.setDescription(produit.getDescription());
 				p.setQuantite(produit.getQuantite());
 				p.setPrixUnitaireHTC(produit.getPrixUnitaireHTC());
+				double prixTotalTTC = p.getQuantite() * p.getPrixUnitaireHTC() * 1.19;
+				p.setPrixTotalTTC(prixTotalTTC);
 		
 				
 			}
